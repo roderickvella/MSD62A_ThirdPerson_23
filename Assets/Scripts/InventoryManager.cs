@@ -111,13 +111,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void ChangeSelection()
+    public void ChangeSelection(bool moveLeft)
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (moveLeft)
         {
             currentSelectedIndex -= 1; //move left
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else 
         {
             currentSelectedIndex += 1; //move right
         }
@@ -132,7 +132,7 @@ public class InventoryManager : MonoBehaviour
         RefreshInventoryGUI();
     }
 
-    void ConfirmSelection()
+    public void ConfirmSelection()
     {
         //get the item from the itemsForPlayer list using the currentSelectedIndex
         InventoryItem inventoryItem = itemsForPlayer[currentSelectedIndex];
@@ -154,16 +154,16 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J) || (Input.GetKeyDown(KeyCode.K))) {
-            ChangeSelection();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ConfirmSelection();
-        }
+        //if(Input.GetKeyDown(KeyCode.J) || (Input.GetKeyDown(KeyCode.K))) {
+        //    ChangeSelection();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    ConfirmSelection();
+        //}
     }
 
-    [ContextMenu("ToggleInventory")]
+    //[ContextMenu("ToggleInventory")]
     public void ShowToggleInventory()
     {
         if(showInventory == false)
